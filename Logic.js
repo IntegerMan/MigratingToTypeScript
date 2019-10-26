@@ -1,9 +1,11 @@
 var testCases = [];
+var nextTestCaseId = 1;
 
 class TestCase {
-    constructor(testCaseName) {
+    constructor(testCaseName, id) {
         this.name = testCaseName;
         this.isPassing = true;
+        this.id = id;
     }
 }
 
@@ -12,7 +14,7 @@ function addTestCase() {
     const testCaseName = textBox.value;
 
     if (testCaseName) {
-        const testCase = new TestCase(testCaseName);
+        const testCase = new TestCase(testCaseName, nextTestCaseId++);
         testCases.push(testCase);
 
         updateTestCases();
@@ -53,10 +55,24 @@ function addTestCaseToUI(testCase) {
 
     var buttons = document.createElement('div');
     buttons.className = 'btn-group';
-    buttons.innerHTML = "<button class='btn btn-success'>Pass</button><button class='btn btn-warning'>Fail</button><button class='btn btn-danger'>Delete</button>";
+    buttons.innerHTML = `<button class='btn btn-success' onclick='passTestCase(${testCase.id});'>Pass</button>
+                         <button class='btn btn-warning' onclick='failTestCase(${testCase.id});'>Fail</button>
+                         <button class='btn btn-danger' onclick='deleteTestCase(${testCase.id});'>Delete</button>`;
     child.appendChild(buttons);
 
     list.appendChild(child);
+}
+
+function passTestCase(id) {
+    console.debug('Pass Test Case', id);
+}
+
+function failTestCase(id) {
+    console.debug('Fail Test Case', id);
+}
+
+function deleteTestCase(id) {
+    console.debug('Delete Test Case', id);
 }
 
 function hideAddItemsPrompt() {
