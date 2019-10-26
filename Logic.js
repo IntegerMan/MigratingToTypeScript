@@ -56,31 +56,46 @@ function addTestCaseToUI(testCase) {
     var buttons = document.createElement('div');
     buttons.className = 'btn-group';
     buttons.innerHTML = `<button class='btn btn-success' onclick='passTestCase(${testCase.id});'>Pass</button>
-                         <button class='btn btn-warning' onclick='failTestCase(${testCase.id});'>Fail</button>
-                         <button class='btn btn-danger' onclick='deleteTestCase(${testCase.id});'>Delete</button>`;
+                         <button class='btn btn-danger' onclick='failTestCase(${testCase.id});'>Fail</button>
+                         <button class='btn btn-outline-danger ml-2' onclick='deleteTestCase(${testCase.id});'>Delete</button>`;
     child.appendChild(buttons);
 
     list.appendChild(child);
 }
 
 function passTestCase(id) {
-    console.debug('Pass Test Case', id);
+    const testcase = findTestCaseById(id);
+    testcase.isPassing = true;
+    updateTestCases();
 }
 
 function failTestCase(id) {
-    console.debug('Fail Test Case', id);
+    const testcase = findTestCaseById(id);
+    testcase.isPassing = false;
+    updateTestCases();
 }
 
 function deleteTestCase(id) {
-    console.debug('Delete Test Case', id);
+    const testcase = findTestCaseById(id);
+    const index = this.testCases.indexOf(testcase);
+    this.testCases.splice(index, 1);
+    updateTestCases();
 }
 
 function hideAddItemsPrompt() {
     const label = document.getElementById('lblNoTestCases');
-    label.className = 'hidden';
+    label.className = 'invisible';
 }
 
 function showAddItemsPrompt() {
     const label = document.getElementById('lblNoTestCases');
-    label.className = '';
+    label.className = 'visible';
+}
+
+function findTestCaseById(id) {
+    for (testcase of this.testCases) {
+        if (testcase.id === id) return testcase;
+    }
+
+    return null;
 }
