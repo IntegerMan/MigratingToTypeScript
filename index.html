@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Migrating to TypeScript Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="TestCases.css">
     <script src="Logic.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 <body>
-    <a href="https://www.KillAllDefects.com" target="_blank" title="Visit Kill All Defects Website">
-        <img src="KillAllDefects.png" width="312" height="91"  alt="Kill All Defects Logo" />
-    </a>
-    <h1>Test Manager</h1>
-    <div>Add a test case below, then click to indicate if it is passing or failing.</div>
-    <div class="addTestCase">
-        <label>Test Case: <input id="txtTestName" type="text" minlength="1" placeholder="Enter test case name" required></label>
-        <button id="btnAddTestCase" onclick="addTestCase()">Add</button>
-    </div>
-    <div>
-        <h2>Test Cases</h2>
-        <div id="lblNoTestCases">There are no test cases. Click add test case above to get started.</div>
-        <div id="listTestCases">
+    <div class="container">
+        <a href="https://www.KillAllDefects.com" target="_blank" title="Visit Kill All Defects Website">
+            <img src="KillAllDefects.png" width="312" height="91"  alt="Kill All Defects Logo" />
+        </a>
+        <div class="jumbotron">
+            <h1>Test Manager</h1>
+            <div>Add a test case below, then click to indicate if it is passing or failing.</div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="txtTestName" placeholder="Enter test case name" aria-label="Test Case Name" aria-describedby="button-add">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="button-add" onclick="addTestCase()">Add</button>
+            </div>
+        </div>
+        <div>
+            <h2>Test Cases</h2>
+            <div id="lblNoTestCases">There are no test cases. Click add test case above to get started.</div>
+            <div id="listTestCases" class="list-group"></div>
         </div>
     </div>
 </body>
