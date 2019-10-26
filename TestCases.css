@@ -1,0 +1,16 @@
+.addTestCase {
+    margin-top: 1rem;
+}
+
+#txtTestName {
+    margin-left: 0.5rem;
+}
+
+body {
+    background: #000000;
+    color: #ffffff;
+}
+
+.hidden {
+    display: none;
+}
