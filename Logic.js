@@ -1,5 +1,5 @@
 var testCases = [];
-var nextTestCaseId = 1;
+var nextTestCaseId = 2;
 
 class TestCase {
     constructor(testCaseName, id) {
@@ -7,6 +7,14 @@ class TestCase {
         this.isPassing = true;
         this.id = id;
     }
+}
+
+function buildInitialData() {
+    return [{
+        name: 'The app should not crash on startup',
+        isPassing: true,
+        id: '1'
+    }];
 }
 
 function addTestCase() {
@@ -70,7 +78,7 @@ function passTestCase(id) {
 }
 
 function failTestCase(id) {
-    const testcase = findTestCaseById(id);
+    const testCase = findTestCaseById(id);
     testcase.isPassing = false;
     updateTestCases();
 }
@@ -87,9 +95,9 @@ function hideAddItemsPrompt() {
     label.className = 'invisible';
 }
 
-function showAddItemsPrompt() {
+function showAddItemPrompt() {
     const label = document.getElementById('lblNoTestCases');
-    label.className = 'visible';
+    label.className = 'text-muted';
 }
 
 function findTestCaseById(id) {
@@ -99,3 +107,8 @@ function findTestCaseById(id) {
 
     return null;
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    testCases = buildInitialData();
+    updateTestCases();
+});
