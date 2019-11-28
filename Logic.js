@@ -81,6 +81,7 @@ function addTestCaseToUI(testCase) {
     child.appendChild(buttons);
     list.appendChild(child);
 }
+// eslint-disable-next-line no-unused-vars
 function passTestCase(id) {
     var testcase = testManager.findTestCaseById(id);
     if (testcase) {
@@ -88,6 +89,7 @@ function passTestCase(id) {
     }
     updateTestCases(testManager);
 }
+// eslint-disable-next-line no-unused-vars
 function failTestCase(id) {
     var testcase = testManager.findTestCaseById(id);
     if (testcase) {
@@ -95,6 +97,7 @@ function failTestCase(id) {
     }
     updateTestCases(testManager);
 }
+// eslint-disable-next-line no-unused-vars
 function deleteTestCase(id) {
     var testcase = testManager.findTestCaseById(id);
     if (testcase) {
@@ -111,5 +114,7 @@ function showAddItemsPrompt() {
     label.className = 'text-muted';
 }
 document.addEventListener("DOMContentLoaded", function () {
+    var addButton = document.getElementById("button-add");
+    addButton.onclick = addTestCase;
     updateTestCases(testManager);
 });

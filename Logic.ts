@@ -100,6 +100,7 @@ function addTestCaseToUI(testCase: TestCase) {
     list.appendChild(child);
 }
 
+// eslint-disable-next-line no-unused-vars
 function passTestCase(id: number) {
     const testcase = testManager.findTestCaseById(id);
     if (testcase) {
@@ -108,6 +109,7 @@ function passTestCase(id: number) {
     updateTestCases(testManager);
 }
 
+// eslint-disable-next-line no-unused-vars
 function failTestCase(id: number) {
     const testcase = testManager.findTestCaseById(id);
     if (testcase) {
@@ -116,6 +118,7 @@ function failTestCase(id: number) {
     updateTestCases(testManager);
 }
 
+// eslint-disable-next-line no-unused-vars
 function deleteTestCase(id: number) {
     const testcase = testManager.findTestCaseById(id);
     if (testcase) {
@@ -134,6 +137,9 @@ function showAddItemsPrompt() {
     label.className = 'text-muted';
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    updateTestCases(testManager);
+document.addEventListener("DOMContentLoaded", function()
+{
+    const addButton = <HTMLElement>document.getElementById("button-add");
+        addButton.onclick = addTestCase;
+            updateTestCases(testManager);
 });
