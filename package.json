@@ -1,0 +1,26 @@
+{
+  "name": "matteland.migratingtotypescript",
+  "version": "1.0.0",
+  "description": "A tutorial application used to illustrate JavaScript and TypeScript concepts",
+  "main": "Logic.js",
+  "scripts": {
+    "transpile": "tsc",
+    "build": "npm run transpile",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IntegerMan/MigratingToTypeScript.git"
+  },
+  "keywords": [
+    "tutorial",
+    "linting",
+    "typescript"
+  ],
+  "author": "Matt Eland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IntegerMan/MigratingToTypeScript/issues"
+  },
+  "homepage": "https://github.com/IntegerMan/MigratingToTypeScript#readme"
+}
