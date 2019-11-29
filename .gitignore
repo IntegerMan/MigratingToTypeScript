@@ -2,3 +2,4 @@
 .idea/
 
 tsconfig.tsbuildinfo
+node_modules/
