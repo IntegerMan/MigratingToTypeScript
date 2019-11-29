@@ -5,7 +5,7 @@
   "main": "Logic.js",
   "scripts": {
     "transpile": "tsc",
-    "lint": "eslint --ext .ts .",
+    "lint": "eslint --fix --ext .ts .",
     "build": "npm run lint && npm run transpile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,7 +28,10 @@
     "@typescript-eslint/eslint-plugin": "^2.9.0",
     "@typescript-eslint/parser": "^2.9.0",
     "eslint": "^6.7.1",
+    "eslint-config-prettier": "^6.7.0",
     "eslint-config-typescript": "^3.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.19.1",
     "typescript": "^3.7.2"
   }
 }
